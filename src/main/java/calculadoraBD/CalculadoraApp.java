@@ -1,6 +1,6 @@
-package AccesoDatos;
+package calculadoraBD;
 
-import static AccesoDatos.MetodoCalculadora.mostrarMenu;
+import static calculadoraBD.MetodoCalculadora.mostrarMenu;
 
 public class CalculadoraApp {
 

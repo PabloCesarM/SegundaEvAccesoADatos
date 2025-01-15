@@ -1,4 +1,4 @@
-package AccesoDatos;
+package calculadoraBD;
 
 import java.io.*;
 import java.util.Scanner;

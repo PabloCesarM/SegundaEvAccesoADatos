@@ -1,6 +1,7 @@
-package AccesoDatos;
+package calculadoraBD;
 
 import java.sql.*;
+import java.util.Properties;
 
 public class DbManager {
 
@@ -10,9 +11,30 @@ public class DbManager {
     static String PASSWORD = "user";
     private Connection conn = null;
 
+
+
+    // metodo para obtener datos de properties
+    public void init() {
+        Properties properties = new Properties();
+        try {
+            //properties.load(new File);
+
+
+        }catch ( Exception e){
+
+        }
+
+        //pasar lo siguiente a otro metodo para realizar la conexion
+        try {
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        } catch (SQLException e) {
+            throw  new RuntimeException(e);
+        }
+    }
+
+
     //metodo para realizar las consultas
     private static int selectNumero(){
-
         int num2 = 0;
 
         try(Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)){
@@ -21,13 +43,12 @@ public class DbManager {
                 PreparedStatement stmt = conn.prepareStatement(query);
                 stmt.setInt(1, 1);
 
-                System.out.println("CONSULTA ===> " + stmt.toString());
+
 
                 ResultSet rs = stmt.executeQuery();
                 while (rs.next()) {
                     num2 = rs.getInt("numero");
-                    System.out.println("NumeroGuardado = " + rs.getObject("numero"));
-
+                    System.out.println("NumeroGuardado = " + num2);
                 }
             }
 
