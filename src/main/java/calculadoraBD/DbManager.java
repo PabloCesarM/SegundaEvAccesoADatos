@@ -9,12 +9,12 @@ public class DbManager {
     static String URL = "jdbc:mysql://localhost:3306/bdejCaluculadora";
     static String USER = "user";
     static String PASSWORD = "user";
-    private Connection conn = null;
+    static Connection conn = null;
 
 
 
     // metodo para obtener datos de properties
-    public void init() {
+    public  void init() {
         Properties properties = new Properties();
         try {
             //properties.load(new File);
@@ -72,6 +72,4 @@ public class DbManager {
             e.printStackTrace();
         }
     }
-
-
 }
